@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace LoggerExercise
 {
-    internal abstract class Logger
+    public abstract class Logger
     {
+        public abstract void Log(string message);
+
+        public virtual void Close() { }
     }
 }

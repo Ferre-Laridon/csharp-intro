@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace LoggerExercise
 {
-    internal class NullLogger : Logger
+    public class NullLogger : Logger
     {
+        public override void Log(string message)
+        {
+            
+        }
     }
 }
