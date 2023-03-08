@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace FractionExercise
 {
@@ -84,6 +85,46 @@ namespace FractionExercise
             var a = this;
 
             return a.Multiply(b.Invert());
+        }
+
+        public static Fraction operator +(Fraction a, Fraction b)
+        {
+            var num = a.Numerator * b.Denominator + a.Denominator * b.Numerator;
+            var den = a.Denominator * b.Denominator;
+            return new Fraction(num, den);
+        }
+
+        public static Fraction operator -(Fraction a)
+        {
+            return new Fraction(-a.Numerator, a.Denominator);
+        }
+
+        public static Fraction operator -(Fraction a, Fraction b)
+        {
+            return a + -(b);
+        }
+
+        public static Fraction operator *(Fraction a, Fraction b)
+        {
+            var num = a.Numerator * b.Numerator;
+            var den = a.Denominator * b.Denominator;
+
+            return new Fraction(num, den);
+        }
+
+        public static Fraction operator /(Fraction a, Fraction b)
+        {
+            return a * new Fraction(b.Denominator, b.Numerator);
+        }
+
+        public static bool operator ==(Fraction a, Fraction b)
+        {
+            return a.Numerator == b.Numerator && a.Denominator == b.Denominator;
+        }
+
+        public static bool operator !=(Fraction a, Fraction b)
+        {
+            return !(a==b);
         }
     }
 }
